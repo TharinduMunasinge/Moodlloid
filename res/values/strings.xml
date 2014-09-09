@@ -16,7 +16,7 @@
     <string name="title_activity_planet_fragment">PlanetFragment</string>
     <string name="title_activity_profile">Profile</string>
     <string name="title_activity_papers">Courses</string>
-    <string name="title_activity_marks">Grades</string>
+    <string name="title_activity_marks">Notification</string>
     <string name="title_activity_explanations">Messages</string>
     <string name="title_activity_cups">Logout</string>
 
@@ -25,15 +25,15 @@
         <item>Courses</item>
         <item>Notifications</item>
         <item>Messages</item>
-        <item>Cups</item>
+        <item>Logout</item>
     </string-array>
 
     <array name="icons">
         <item>@drawable/profile</item>
         <item>@drawable/papers</item>
-        <item>@drawable/marks</item>
         <item>@drawable/explanations</item>
-        <item>@drawable/cups</item>
+        <item>@drawable/message</item>
+        <item>@drawable/logout</item>
     </array>
 
     <string name="imgdesc">Description</string>

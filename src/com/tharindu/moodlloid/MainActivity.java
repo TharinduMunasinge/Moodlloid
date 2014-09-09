@@ -185,21 +185,21 @@ public class MainActivity extends Activity {
 		Fragment fragment = null;
 		switch (position) {
 		case 0:
-			fragment = new Profile();
+			fragment = new ProfileFragment();
 			break;
 		case 1:
-			fragment = new Courses();
+			fragment = new CoursesFragment();
 			break;
 		case 2:
-			fragment = new Marks();
+			fragment = new NotificationsFragment();
 			break;
 		case 3:
-			fragment = new Explanations();
+			fragment = new MessagesFragment();
 			break;
 		case 4: 
 			fragment= new Callendar();
 		default:	
-			fragment = new Courses();
+			fragment = new CoursesFragment();
 			break;
 		}
 

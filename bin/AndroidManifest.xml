@@ -38,19 +38,19 @@
                 android:value="android.support.v4.app.FragmentActivity" />
         </activity>
         <activity
-            android:name="com.tharindu.moodlloid.Profile"
+            android:name="com.tharindu.moodlloid.ProfileFragment"
             android:label="@string/title_activity_profile" >
         </activity>
         <activity
-            android:name="com.tharindu.moodlloid.Courses"
+            android:name="com.tharindu.moodlloid.CoursesFragment"
             android:label="@string/title_activity_papers" >
         </activity>
         <activity
-            android:name="com.tharindu.moodlloid.Marks"
+            android:name="com.tharindu.moodlloid.NotificationsFragment"
             android:label="@string/title_activity_marks" >
         </activity>
         <activity
-            android:name="com.tharindu.moodlloid.Explanations"
+            android:name="com.tharindu.moodlloid.MessagesFragment"
             android:label="@string/title_activity_explanations" >
         </activity>
         <activity

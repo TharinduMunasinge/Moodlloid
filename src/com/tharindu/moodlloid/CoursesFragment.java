@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 
-public class Courses extends Fragment {
+public class CoursesFragment extends Fragment {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-		View rootView = inflater .inflate(R.layout.papers_fragment, container, false);
+		View rootView = inflater .inflate(R.layout.courses_fragment, container, false);
 		
 		WebView webView = (WebView)rootView.findViewById(R.id.webview);
 
