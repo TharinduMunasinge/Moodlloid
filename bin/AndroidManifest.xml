@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tharindu.moodlloid"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="15" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.tharindu.moodlloid.Welcome"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tharindu.moodlloid.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="com.tharindu.moodlloid.PlanetFragment"
+            android:label="@string/title_activity_planet_fragment"
+            android:parentActivityName="android.support.v4.app.FragmentActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="android.support.v4.app.FragmentActivity" />
+        </activity>
+        <activity
+            android:name="com.tharindu.moodlloid.Profile"
+            android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name="com.tharindu.moodlloid.Courses"
+            android:label="@string/title_activity_papers" >
+        </activity>
+        <activity
+            android:name="com.tharindu.moodlloid.Marks"
+            android:label="@string/title_activity_marks" >
+        </activity>
+        <activity
+            android:name="com.tharindu.moodlloid.Explanations"
+            android:label="@string/title_activity_explanations" >
+        </activity>
+        <activity
+            android:name="com.tharindu.moodlloid.Callendar"
+            android:label="@string/title_activity_cups" >
+        </activity>
+        <activity
+            android:name="com.tharindu.moodlloid.LogIn"
+            android:label="@string/title_activity_log_in" >
+        </activity>
+        <activity
+            android:name="com.epsiloncrest.payment.Payment"
+            android:label="@string/title_activity_payment" >
+        </activity>
+
+         <activity
+            android:name="com.tharindu.moodlloid.SiteRegistrationActivity"
+            android:label="@string/title_activity_newsite" >
+        </activity>
+        
+         <activity
+            android:name="com.tharindu.moodlloid.TestDataActivity"
+            android:label="@string/title_activity_newsite" >
+        </activity>
+        </application>
+
+</manifest>

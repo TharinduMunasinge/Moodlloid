@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Moodlloid</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main">General</string>
+
+    <string-array name="planets_array">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+    </string-array>
+
+    <string name="title_activity_planet_fragment">PlanetFragment</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_papers">Courses</string>
+    <string name="title_activity_marks">Grades</string>
+    <string name="title_activity_explanations">Messages</string>
+    <string name="title_activity_cups">Logout</string>
+
+    <string-array name="titles">
+        <item>Profile</item>
+        <item>Courses</item>
+        <item>Notifications</item>
+        <item>Messages</item>
+        <item>Cups</item>
+    </string-array>
+
+    <array name="icons">
+        <item>@drawable/profile</item>
+        <item>@drawable/papers</item>
+        <item>@drawable/marks</item>
+        <item>@drawable/explanations</item>
+        <item>@drawable/cups</item>
+    </array>
+
+    <string name="imgdesc">Description</string>
+    <string name="title_activity_log_in">LogIn</string>
+    <string name="title_activity_payment">Payment</string>
+    <string name="sitelist_newsite_text">Add New Site</string>
+    <string name="title_activity_newsite">New Site Registration</string>
+
+</resources>

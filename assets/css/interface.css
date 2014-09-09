@@ -1,0 +1,18 @@
+.page_interface{
+   margin:0px;
+   width:inherit;
+   height:inherit;
+    padding: 0px;
+    
+}
+.interface_raw{
+  margin:4px;
+  padding:10px;
+  margin-bottom:20px;
+  height: 100px;
+  width: inherit;
+  margin-bottom:25px;
+  display:inline-block;
+  vertical-align:middle;
+
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://metroui.org.ua/sidebar.html# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="Metro UI CSS Framework">
+    <meta name="description" content="Simple responsive css framework">
+    <meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+
+    <link href="http://metroui.org.ua/css/metro-bootstrap.css" rel="stylesheet">
+    <link href="http://metroui.org.ua/css/metro-bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://metroui.org.ua/css/iconFont.css" rel="stylesheet">
+    <link href="http://metroui.org.ua/css/docs.css" rel="stylesheet">
+    <link href="http://metroui.org.ua/js/prettify/prettify.css" rel="stylesheet">
+
+    <!-- Load JavaScript Libraries -->
+    <script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/jquery.min.js"></script>
+    <script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/jquery.widget.min.js"></script>
+    <script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/jquery.mousewheel.js"></script>
+    <script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/docs.js"></script>
+    <script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/github.info.js"></script>
+    <script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/metro-dropdown.js"></script>
+
+    <title>Metro UI CSS : Metro Bootstrap CSS Library</title>
+<script src="./Metro UI CSS   Metro Bootstrap CSS Library_files/metro.min.js"></script></head>
+<script>
+$("#createFlatWindow").on('click', function(){
+    $.Dialog({
+        overlay: true,
+        shadow: true,
+        flat: true,
+        icon: '<img src="images/pizza.png">',
+        title: 'Flat window',
+        content: '',
+        padding: 10,
+        onShow: function(_dialog){
+            var content = '<form>' +
+                '<label>Login</label>' +
+                '<div class="form-actions">' +
+                '<button class="button primary">Login to...</button> '+
+                '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> '+
+                '</div>'+
+                '</form>';
+ 
+            $.Dialog.title("User login");
+            $.Dialog.content(content);
+            $.Metro.initInputs();
+        }
+    });
+});
+</script>
+<body class="metro">
+
+                                <!-- include your metro ui component here -->
+
+ <nav class="navigation-bar">
+                  <nav class="navigation-bar-content">
+                       <div class="element">
+                            <a class="dropdown-toggle" href="#">METRO UI CSS</a>
+                               <ul class="dropdown-menu" data-role="dropdown">
+                                    <li><a href="#">Main</a></li>
+                                    <li><a href="#">File Open</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Print...</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Exit</a></li>
+                               </ul>
+                            </div>
+ 
+                            <span class="element-divider"></span>
+                                  <a class="element brand" href="#"><span class="icon-spin"></span></a>
+                                  <a class="element brand" href="#"><span class="icon-printer"></span></a>
+                                   <span class="element-divider"></span>
+ 
+                                    <div class="element input-element">
+                                     <form>
+                                          <div class="input-control text">
+                                                   <input type="text" placeholder="Search...">
+                                                   <button class="btn-search"></button>
+                                          </div>
+                                          </form>
+                                          </div>
+ 
+                                          <div class="element place-right">
+                                            <a class="dropdown-toggle" href="#">
+                                            <span class="icon-cog"></span>
+                                            </a>
+                                             <ul class="dropdown-menu place-right" data-role="dropdown">
+                                             <li><a href="#">Products</a></li>
+                                             <li><a href="#">Download</a></li>
+                                              <li><a href="#">Support</a></li>
+                                               <li><a href="#">Buy Now</a></li>
+                                                </ul>
+                                                </div>
+                                                <span class="element-divider place-right"></span>
+                                                 <a class="element place-right" href="#"><span class="icon-locked-2"></span></a>
+                                                 <span class="element-divider place-right"></span>
+
+                                                                   </nav>
+                                                 </nav>
+	<script>
+		            $(function(){
+		                $("#createSysEventsWindow").on('click', function(){
+		                    $.Dialog({
+		                        shadow: true,
+		                        overlay: false,
+		                        icon: '',
+		                        title: 'Title',
+		                        width: 500,
+		                        padding: 10,
+		                        content: 'Window content here',
+		                        draggable: true,
+		                        sysButtons: {
+		                            btnMin: true,
+		                            btnMax: true,
+		                            btnClose: true
+		                        },
+		                        sysBtnCloseClick: function(e){
+		                            alert('Close button click');
+		                        },
+		                        sysBtnMinClick: function(e){
+		                            alert('Min button click');
+		                        },
+		                        sysBtnMaxClick: function(e){
+		                            alert('Max button click');
+		                        }
+		                    });
+		                });
+		               
+		               
+		                $(".product").on('click', function(){
+		                    $.Dialog({
+		                        overlay: true,
+		                        shadow: true,
+		                        flat: true,
+		                        draggable: true,
+		                        icon: '<img src="images/excel2013icon.png">',
+		                        title: 'Product',
+		                        content: '',
+		                        padding: 10,
+		                        onShow: function(_dialog){
+		                            var content = '<form class="user-input">' +
+		                                    '<label>Confirm Product</label>' +
+		                          	    '<div class="input-control text">' +
+						    '</div>' +
+		                                    '<div class="input-control checkbox"><label><input type="checkbox" name="c1" checked/><span class="check"></span>Check me out</label></div>'+
+		                                    '<div class="form-actions">' +
+		                                    '<button class="button primary" id="confirm_product">Confirm</button>&nbsp;'+
+		                                    '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> '+
+		                                    '</div>'+
+		                                    '</form>';
+
+		                            $.Dialog.title("Product Confirmation");
+		                            $.Dialog.content(content);
+		                        }
+		                    });
+		                });
+		                
+				<!-- login window -->
+				$("#confirm_product").on('click', function(){
+                            $.Dialog({
+                                overlay: true,
+                                shadow: true,
+                                flat: true,
+                                draggable: true,
+                                icon: '<img src="images/excel2013icon.png">',
+                                title: 'Flat window',
+                                content: '',
+                                padding: 10,
+                                onShow: function(_dialog){
+                                    var content = '<form class="user-input">' +
+                                            '<label>Login</label>' +
+                                            '<div class="input-control text"><input type="text" name="login"><button class="btn-clear"></button></div>' +
+                                            '<label>Password</label>'+
+                                            '<div class="input-control password"><input type="password" name="password"><button class="btn-reveal"></button></div>' +
+                                            '<div class="input-control checkbox"><label><input type="checkbox" name="c1" checked/><span class="check"></span>Check me out</label></div>'+
+                                            '<div class="form-actions">' +
+                                            '<button class="button primary">Login to...</button>&nbsp;'+
+                                            '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> '+
+                                            '</div>'+
+                                            '</form>';
+
+                                    $.Dialog.title("User login");
+                                    $.Dialog.content(content);
+                                }
+                            });
+                        });
+ 
+		            })
+		        </script>
+
+
+<div class="listview">
+    <a href="#" class="list product" id="createFlatWindow">
+        <div class="list-content">
+            <img src="pics/pizza.png" class="icon">
+            <div class="data">
+                <span class="list-title">Chicken Pizza</span>
+                <div class="rating small no-margin" data-role="rating"
+                        data-stars="5"></div>
+                <span class="list-remark">Price: $200</span>
+            </div>
+        </div>
+    </a>
+    <a href="#" class="list product" id="createFlatWindow">
+        <div class="list-content">
+            <img src="pics/pizza.png" class="icon">
+            <div class="data">
+                <span class="list-title">Vegitarian Pizza</span>
+                <div class="rating small no-margin" data-role="rating"
+                        data-stars="5"></div>
+                <span class="list-remark">Price: $100</span>
+            </div>
+        </div>
+    </a>
+    <a href="#" class="list product">
+        <div class="list-content">
+            <img src="pics/pizza.png" class="icon">
+            <div class="data">
+                <span class="list-title">Chicken Thanduri Pizza</span>
+                <div class="rating small no-margin" data-role="rating"
+                        data-stars="5"></div>
+                <span class="list-remark">Price: $240</span>
+            </div>
+        </div>
+    </a>
+    <a href="#" class="list product">
+        <div class="list-content">
+            <img src="pics/pizza.png" class="icon">
+            <div class="data">
+                <span class="list-title">Birizza Pizza</span>
+                <div class="rating small no-margin" data-role="rating"
+                        data-stars="5"></div>
+                <span class="list-remark">Price: $500</span>
+            </div>
+        </div>
+    </a>
+    <a href="#" class="list product">
+        <div class="list-content">
+            <img src="pics/pizza.png" class="icon">
+            <div class="data">
+                <span class="list-title">Doughnut</span>
+                <div class="rating small no-margin" data-role="rating"
+                        data-stars="5"></div>
+                <span class="list-remark">Price: $120</span>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+
+
+</body></html>
