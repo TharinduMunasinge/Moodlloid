@@ -75,6 +75,15 @@
             android:name="com.tharindu.moodlloid.TestDataActivity"
             android:label="@string/title_activity_newsite" >
         </activity>
-        </application>
+    
+                  <activity
+            android:name="com.tharindu.moodlloid.CourseDetailActivity"
+            android:label="@string/title_activity_newsite" >
+        </activity>
+         
+         </application>
 
+    
+    
+    
 </manifest>
