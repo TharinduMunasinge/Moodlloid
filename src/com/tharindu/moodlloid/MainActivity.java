@@ -26,8 +26,7 @@ public class MainActivity extends Activity {
 	
 	
 	public static MoodleCalendar[] calendarEvents;
-	
-	
+		
 
 	// Attribute goes here.............
 	String[] menutitles; 			//to enumarate through menu items
@@ -40,80 +39,6 @@ public class MainActivity extends Activity {
 	private List<RowItem> rowItems;
 	private CustomAdapter adapter; 	
 
-
-	//Getter and Setters for attributes......
-	
-	public String[] getMenutitles() {
-		return menutitles;
-	}
-
-	public void setMenutitles(String[] menutitles) {
-		this.menutitles = menutitles;
-	}
-
-	public TypedArray getMenuIcons() {
-		return menuIcons;
-	}
-
-	public void setMenuIcons(TypedArray menuIcons) {
-		this.menuIcons = menuIcons;
-	}
-
-	public CharSequence getmDrawerTitle() {
-		return mDrawerTitle;
-	}
-
-	public void setmDrawerTitle(CharSequence mDrawerTitle) {
-		this.mDrawerTitle = mDrawerTitle;
-	}
-
-	public CharSequence getmTitle() {
-		return mTitle;
-	}
-
-	public void setmTitle(CharSequence mTitle) {
-		this.mTitle = mTitle;
-	}
-
-	public DrawerLayout getmDrawerLayout() {
-		return mDrawerLayout;
-	}
-
-	public void setmDrawerLayout(DrawerLayout mDrawerLayout) {
-		this.mDrawerLayout = mDrawerLayout;
-	}
-
-	public ListView getmDrawerList() {
-		return mDrawerList;
-	}
-
-	public void setmDrawerList(ListView mDrawerList) {
-		this.mDrawerList = mDrawerList;
-	}
-
-	public ActionBarDrawerToggle getmDrawerToggle() {
-		return mDrawerToggle;
-	}
-
-	public void setmDrawerToggle(ActionBarDrawerToggle mDrawerToggle) {
-		this.mDrawerToggle = mDrawerToggle;
-	}
-
-	public List<RowItem> getRowItems() {
-		return rowItems;
-	}
-
-	public void setRowItems(List<RowItem> rowItems) {
-		this.rowItems = rowItems;
-	}
-
-	public CustomAdapter getAdapter() {
-		return adapter;
-	}
-
-	public void setAdapter(CustomAdapter adapter) {
-		this.adapter = adapter;
-	}
 
 	
 	
@@ -203,7 +128,6 @@ public class MainActivity extends Activity {
 			fragment = new MessagesFragment();
 			break;
 		case 4: 
-
 			finish();
 		default:	
 			finish();

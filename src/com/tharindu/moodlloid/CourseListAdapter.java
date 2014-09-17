@@ -11,22 +11,25 @@ import android.widget.TextView;
 
 import com.tharindu.moodlloid.rest.UserEnrolledCourse;
 
+/****************************************************
+ * This Class used to bind the data to CourseList
+ * @author tharindu
+ *
+ *****************************************************/
 public class CourseListAdapter extends ArrayAdapter<UserEnrolledCourse> {
 
 
-	 Context context;
-	 List<UserEnrolledCourse> courses;
-
-	
+	 /**
+	 * Context from which this item generated
+	 */
+	private Context context;
+	private List<UserEnrolledCourse> courses;
 	
 	public CourseListAdapter(Context context, List<UserEnrolledCourse> resource) {
 		super(context, R.layout.courselist_item,resource);
 		this.context=context;
 		this.courses=resource;
 		}
-
-	
-	
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -39,6 +42,7 @@ public class CourseListAdapter extends ArrayAdapter<UserEnrolledCourse> {
 		TextView view=(TextView)convertView.findViewById(R.id.titleText);
 		TextView tv=(TextView)convertView.findViewById(R.id.titleName);
 		
+		//set the full name and short name of the course
 		view.setText(courses.get(position).getFullName());
 		tv.setText(courses.get(position).getShortName());
 		return convertView;

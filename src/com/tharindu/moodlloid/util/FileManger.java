@@ -6,8 +6,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+/*************************************************************
+ * This is a Utility class that can handl file operations
+ * @author tharindu
+ ****************************************************************/
 public class FileManger {
 
+	/**
+	 * Openn the Downloded file with Relevent application
+	 * @param con : acitivty
+	 * @param ExternalStroagepath : Path of the External Storage
+	 * @param Absolutepath :Path to the file
+	 * @param fileFormat : Format of the file
+	 */
 	public static void openFile(Context con,String ExternalStroagepath,String Absolutepath , String fileFormat)
 	{
 		Intent intent = new Intent();
@@ -54,6 +65,11 @@ public class FileManger {
 		
 	}
 	
+	/**
+	 * This method will find out the MIME type based on the extention of the file
+	 * @param filename 
+	 * @return
+	 */
 	public static String getFileType(String filename)
 	{
 		String FileTypetoBeOpened="";

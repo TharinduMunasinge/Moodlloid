@@ -12,6 +12,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+/**
+ * USED to bind the Collapsable drawers ITM
+ * @author tharindu
+ *
+ */
 public class CustomAdapter extends BaseAdapter {
 
  Context context;
@@ -23,7 +29,10 @@ public class CustomAdapter extends BaseAdapter {
  }
 
 
- @Override
+ /***(non-Javadoc)
+ * @see android.widget.Adapter#getView(int, android.view.View, android.view.ViewGroup)
+ */
+@Override
  public View getView(int position, View convertView, ViewGroup parent) {
 
 if (convertView == null) {

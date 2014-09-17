@@ -13,12 +13,19 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 
+/*************************************************************
+ * This is the adapter that bind Site List with list view Controller
+ * @author tharindu
+ ****************************************************************** */
 public class siteListAdapter extends ArrayAdapter<Site> {
 
-
-	 Context context;
-	 List<Site> sites;
+	Context context;
+	List<Site> sites;
 	 
+	/**
+	 * @param context
+	 * @param resource
+	 */
 	public siteListAdapter(Context context, List<Site> resource) {
 		super(context, R.layout.sitelist_item,resource);
 		this.context=context;
@@ -27,6 +34,9 @@ public class siteListAdapter extends ArrayAdapter<Site> {
 		// TODO Auto-generated constructor stub
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.ArrayAdapter#getView(int, android.view.View, android.view.ViewGroup)
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub

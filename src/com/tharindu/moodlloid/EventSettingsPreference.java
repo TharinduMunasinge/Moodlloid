@@ -4,8 +4,15 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.view.MenuItem;
 
+/**********************************************************************************
+ * This is a shared Prefernce acitivty to handle the settings of Event Notification
+ * @author tharindu
+ ***********************************************************************************/
 public class EventSettingsPreference extends PreferenceActivity {
 
+	/* (non-Javadoc)
+	 * @see android.preference.PreferenceActivity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -14,6 +21,9 @@ public class EventSettingsPreference extends PreferenceActivity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub

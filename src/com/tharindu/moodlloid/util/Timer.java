@@ -5,8 +5,17 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
+/********************************************************************************************
+ * This Class is an utility Class that generate th UTC timpstap based on complex requirments
+ * @author tharindu
+ *********************************************************************************************/
 public class Timer {
 
+	/**
+	 * REturn the timestam of the 0:00:00 time of the first day in the current Mont
+	 * @param timepstampInmili
+	 * @return
+	 */
 	public static long getStartOfTheMonthInMili(long timepstampInmili)
 	{
 		Date DC = new Date(timepstampInmili); //get current Year, Month
@@ -30,6 +39,11 @@ public class Timer {
 
 		return endofmonth.getTime();
 	}
+	/**
+	 * REturn the timpestamp of 0:00:00 time in today 
+	 * @param timstampInMili
+	 * @return
+	 */
 	public static long getStartOftheDayInMili(long timstampInMili)
 	{
 		Date DC = new Date(timstampInMili); //get current Year, Month
@@ -51,6 +65,11 @@ public class Timer {
 		return dateStart.getTime();
 	}
 
+	/**
+	 * Get the Timstamp of the End of today
+	 * @param timstampInMili
+	 * @return
+	 */
 	public static long getEndOftheDayInMili(long timstampInMili)
 	{
 		Date DC = new Date(timstampInMili); //get current Year, Month
@@ -69,6 +88,11 @@ public class Timer {
 		return dateStart.getTime();
 	}
 
+	/**
+	 * Ged the Timepstamp of the end of the month
+	 * @param timstampInMili
+	 * @return
+	 */
 	public static long getEndOftheMonthInMili(long timstampInMili)
 	{
 		Date DC = new Date(timstampInMili); //get current Year, Month

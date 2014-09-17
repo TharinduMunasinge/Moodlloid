@@ -39,10 +39,13 @@ import com.tharindu.moodlloid.rest.MoodleModuleContent;
 import com.tharindu.moodlloid.util.FileManger;
 import com.tharindu.moodlloid.util.UIHelper;
 
-/**
+/**************************************************************************************************************
+ * 
  * @author tharindu
  * CourseDetailActivity : is the Activity that shows the content of a given course using Expandable view widget
- **/
+ *
+ **************************************************************************************************************/
+
 public class CourseDetailActivity extends Activity {
 
 
@@ -70,6 +73,8 @@ public class CourseDetailActivity extends Activity {
 	private CourseContent ClickedTopic;
 
 
+	/********************UI Configurationg........... *****************/
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -489,6 +494,8 @@ public class CourseDetailActivity extends Activity {
 					try {
 						String normalUrl=ClickedResource.getContent()[0].getFileURL();
 						String fileurl="";
+						
+						//Check whether parameter is the last parameter or not
 						if(normalUrl.contains("?"))
 						{
 							fileurl=normalUrl+"&token="+SessionWrapper.getCurrentsession().getCurrentLogin().getToken();

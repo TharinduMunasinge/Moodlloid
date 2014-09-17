@@ -16,17 +16,26 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/***********************************************************
+ * This class will shows the Profil of the current user 
+ * @author tharindu
+ *******************************************************/
 public class ProfileFragment extends Fragment {
 
+	/* (non-Javadoc)
+	 * @see android.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+	 */
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
 		View rootView = inflater .inflate(R.layout.profile_fragment, container, false);
-	
-
+		
+		//get the Current Session Information ....................
 		SessionWrapper currentSession=SessionWrapper.getCurrentsession();
 		Site site=currentSession.getCurrentLogin();
 		MoodleUser user=currentSession.getCurrentUser();
-
+		
+		
+		//notifiy user if somthing missing?
 		if(site==null)
 			UIHelper.showToast(rootView.getContext(),"Site is null");
 		if(user==null)
@@ -34,6 +43,8 @@ public class ProfileFragment extends Fragment {
 
 		if(user!=null)
 		{
+			//Set the Profile information
+			
 			((TextView)rootView.findViewById(R.id.lblFirstName)).setText(user.getFirstname());
 			((TextView)rootView.findViewById(R.id.lblLastName)).setText(user.getLastname());
 			((TextView)rootView.findViewById(R.id.lblEmail)).setText(user.getEmail());
@@ -47,14 +58,8 @@ public class ProfileFragment extends Fragment {
 			UIHelper.showToast(rootView.getContext(),"Eror occured");
 			//finish();
 		}
-
-
-		
 		return rootView;
-		
-		
     }
-	
-	
+		
 	
 }

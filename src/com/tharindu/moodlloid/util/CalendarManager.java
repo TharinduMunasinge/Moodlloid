@@ -17,11 +17,31 @@ import android.provider.CalendarContract.Reminders;
 import android.provider.ContactsContract.CommonDataKinds.Event;
 import android.util.Log;
 
+/**********************************************************************************************************
+ * This class responsible for
+	 * Creating Calendar
+	 * Crating events
+	 * Createing reiminders
+	 * and REtrive the event details
+ * 
+ * This class directyl deal with CalendarContact.Provider and store information in local calendar database
+ * @author tharindu 
+ ***********************************************************************************************************/
 public class CalendarManager {
 
 
 	public static String LOGTAG="CalendarManager";
 
+	/**
+	 * This method will create the callendar in local storge
+	 * @param context : Activity name
+	 * @param AccountName : name of the account shoud be used 
+	 * @param CalendarName: Name of the callendar
+	 * @param AccountOwnerEmail 
+	 * @param TimeZone : Times zone should be sent from UTC/GMT +XX:XX format
+	 * 
+	 * Remarks : Given calendar is unique to the ACCOUNTNAME + CALLENDARTYPE(Local or synced)
+	 */
 	public static void createLocalCalendar(Context context,String AccountName,String CalendarName,String AccountOwnerEmail,String TimeZone){
 		//    	Toast.makeText(this,"CLICKED", Toast.LENGTH_LONG).show();
 		ContentValues values = new ContentValues();
@@ -63,10 +83,17 @@ public class CalendarManager {
 				CalendarContract.CALLER_IS_SYNCADAPTER, 
 				"true");
 
+		//url to the newly creaetd calednar content
 		Uri uri =  context.getContentResolver().insert(builder.build(), values);
 
 	}
 
+	/**
+	 * will return the ID of given AccountNAME 
+	 * @param context :Activity
+	 * @param AccountName: 
+	 * @return
+	 */
 	public static long getCalendarId(Context context,String AccountName) { 
 		String[] projection = new String[]{Calendars._ID}; 
 		String selection = 
@@ -94,6 +121,19 @@ public class CalendarManager {
 	} 
 
 
+	/**
+	 * CREATE an EVEnt for given information 
+	 
+	 * @param context :Activity
+	 * @param AccountName  : Name of the ACcount
+	 * @param eventID : Event ID from the MOODLE
+	 * @param startTimeInMili : Starting time
+	 * @param endTimeInMili : End time in miliseconds
+	 * @param eventTitile : title of the Events
+	 * @param Description : Descriptions of the Evnt
+	 * @param courseShortName : name of the Course if its a Course event
+	 * @return
+	 */
 	public static long createEvents(Context context,String AccountName,int eventID,long startTimeInMili,long endTimeInMili,String eventTitile,String Description,String courseShortName){
 		long calId = getCalendarId(context,AccountName);
 		if (calId == -1) {
@@ -139,6 +179,14 @@ public class CalendarManager {
 	}
 
 
+	/**
+	 * Check whether A given Event is already contin in the Calendar 
+	 * 
+	 * @param context :ActivityD
+	 * @param accountName : name of the account
+	 * @param calendarEventIdFromMoodle : MOODLE's  Calendar eVent id
+	 * @return
+	 */
 	public static long eventAlreadyExistTest(Context context,String accountName,int calendarEventIdFromMoodle)
 	{
 		long calId=getCalendarId(context, accountName);
@@ -174,6 +222,13 @@ public class CalendarManager {
 	}
 
 
+	/**
+	 * Set reminders for given Event
+	 * ONly Notification method is :Alert
+	 * @param context
+	 * @param eventID
+	 * @param NumberofMinutesBefore
+	 */
 	public static void addReminder(Context context,long eventID,int NumberofMinutesBefore){
 
 		ContentResolver cr = context.getContentResolver();

@@ -12,13 +12,22 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+/***************************************************************************************************
+ * This class Represent the internal Database which stores the credentials and app relavent data
+ * @author tharindu
+ ***************************************************************************************************/
+
 public class SitesDataSource {
 
 	public static final String LOGTAG="SITE_DATA_SOURCE";
-	
-	public static SQLiteOpenHelper dbhelper;
+	public static SQLiteOpenHelper dbhelper; //for query manipulation
 	SQLiteDatabase database;
 	
+	
+	
+	/**
+	 * This is the Set of Columsn in Site Ddatabase Table
+	 */
 	private static final String[] allColumns = {
 		SitesDBOpenHelper.COLUMN_ID,
 		SitesDBOpenHelper.COLUMN_URL,
@@ -28,18 +37,31 @@ public class SitesDataSource {
 	
 	public SitesDataSource(Context context) {
 		dbhelper = new SitesDBOpenHelper(context);
+		//open a connection
 	}
 	
+	/**
+	 *Open the database connection  
+	 */
 	public void open() {
 		Log.i(LOGTAG, "Database opened");
 		database = dbhelper.getWritableDatabase();
 	}
 
+	
+	/**
+	 *Close the database connection 
+	 */
 	public void close() {
 		Log.i(LOGTAG, "Database closed");		
 		dbhelper.close();
 	}
 	
+	/**
+	 * This method will store the information regarding the Site object in Persistance storage
+	 * @param tour:Site object
+	 * @return
+	 */
 	public Site create(Site tour) {
 		ContentValues values = new ContentValues();
 		values.put(SitesDBOpenHelper.COLUMN_URL, tour.getSiteURL());
@@ -51,6 +73,10 @@ public class SitesDataSource {
 		return tour;
 	}
 	
+	/**
+	 * Find all the Sites stored in database
+	 * @return
+	 */
 	public List<Site> findAll() {
 		
 		Cursor cursor = database.query(SitesDBOpenHelper.TABLE_SITE, allColumns, 
@@ -61,6 +87,12 @@ public class SitesDataSource {
 		return tours;
 	}
 
+	/**
+	 * execute "SELECT from SITE where Selection ORDERED BY " type of query 
+	 * @param selection
+	 * @param orderBy
+	 * @return
+	 */
 	public List<Site> findFiltered(String selection, String orderBy) {
 		
 		Cursor cursor = database.query(SitesDBOpenHelper.TABLE_SITE, allColumns, 
@@ -74,6 +106,13 @@ public class SitesDataSource {
 		return tours;
 	}
 	
+	
+	
+	/**
+	 * Translate the Cursor object to java object
+	 * @param cursor
+	 * @return
+	 */
 	private List<Site> cursorToList(Cursor cursor) {
 		List<Site> tours = new ArrayList<Site>();
 		if (cursor.getCount() > 0) {

@@ -36,22 +36,19 @@ public class Welcome extends Activity {
 	 * This activity allow users to register new sites 
 	 * loginto one of the to the listed sites.
 	 */	
-	ProgressBar pb;
-	MyTask task;
-	SitesDataSource datasouce;
-	
-	
-	public static List<Site> sites;
-//	public static Site currentSite;
+	private ProgressBar pb;
+	private MyTask task;
+	private SitesDataSource datasouce; // to store get the loggin information
+	public static List<Site> sites;	//list of availble session
+
+	//	Set of Constants used in URL
 	private static final String SITE_KEY="url";
 	private static final String UNAME_KEY="uname";
 	private static final String PASS_KEY="password";
 	private static final String TOKE_KEY="toaken";
 	ListView list;
-	
-	
-//public static MoodleWebService siteINFO; 
 
+	//This member variable will store all the information regarding the Session
 	public static SessionWrapper currentSessionInfo;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +57,7 @@ public class Welcome extends Activity {
 
 		list=(ListView)findViewById(R.id.listView1); //get the list view that shows the existing site list
 		currentSessionInfo=SessionWrapper.getCurrentsession();
-		
+
 
 		datasouce =new SitesDataSource(this);
 		datasouce.open();
@@ -70,19 +67,40 @@ public class Welcome extends Activity {
 
 	}
 
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+
+		getMenuInflater().inflate(R.menu.welcome, menu);
+		pb=(ProgressBar)findViewById(R.id.progressBar1);
+
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onResume()
+	 */
 	@Override
 	protected void onResume() {
 		super.onResume();
-		datasouce.open();
+		datasouce.open();//for the persistant DataBase connection
 		refreshDisplay();
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onPause()
+	 */
 	@Override
 	protected void onPause() {
 		super.onPause();
-		datasouce.close();
+		datasouce.close(); // for the persistant Database Connection
 	}
 
+	/**
+	 * Create Sample Loging
+	 */
 	public void create(){
 		Site newsite=new Site();
 		newsite.setPassword("text");
@@ -92,49 +110,34 @@ public class Welcome extends Activity {
 		datasouce.create(newsite);
 	}
 
-	public void login(View v)
-	{
-		//UIHelper.showToast(this,"btn clicked"+v.getParent().getParent());
 
-
-
-	}
 	public void refreshDisplay()
 	{
-
-		sites=datasouce.findAll();
+		sites=datasouce.findAll(); // read the all possible credentials 
 		if(sites.size()>0)
 		{
-
 			siteListAdapter adapter=new siteListAdapter(this, sites);
 			list.setAdapter(adapter);	
+			list.setOnItemClickListener(new SiteClickListner());
+
 		}
-		else
-			create();
-		list.setOnItemClickListener(new SiteClickListner());
+		else{
+			//create();
+			UIHelper.showToast(this,"No available Sessions.. Please Register a new MOODLE");
+		}
 
 	}
 
+	/**
+	 * Start Site Registration Activity
+	 * @param v
+	 */
 	public void addNewSite(View v){
-		//		 task=new MyTask();
-		//		task.execute("test","test");
 
-		//	UIHelper.showToast(this, "clickde");
-		
 		Intent newSite=new Intent(this,SiteRegistrationActivity.class);
-//		Intent newSite=new Intent(this,TestDataActivity.class);
 		startActivity(newSite);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-
-		getMenuInflater().inflate(R.menu.welcome, menu);
-		pb=(ProgressBar)findViewById(R.id.progressBar1);
-		
-		return true;
-	}
 
 
 	void loadSite(int position){
@@ -144,15 +147,15 @@ public class Welcome extends Activity {
 		if(!s.getToken().isEmpty())
 		{
 			//UIHelper.showToast(this, s.getRestURL()+"\n"+s.getToken());
-			
-			
+
+
 			pb.setVisibility(pb.VISIBLE);
 			currentSessionInfo.setCurrentLogin(s);
 			MyTask task=new MyTask();
 			task.execute(s.getRestURL(),s.getToken());
-			
+
 		}
-		
+
 		else{
 			UIHelper.showToast(this,"Token is null");
 		}
@@ -161,9 +164,7 @@ public class Welcome extends Activity {
 	}
 
 
-	/* ********************************************************************************************** 
-	 * Inner class for itemClicklister for list item goes here......
-	 */	
+	/******************************* Inner class for itemClicklister for list item goes here......*************/	
 
 	class SiteClickListner implements ListView.OnItemClickListener {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id)
@@ -174,6 +175,7 @@ public class Welcome extends Activity {
 	}
 
 
+	/******************************* Inner class for Backgroudn thread that send the HTTP request*************/
 	private class MyTask extends AsyncTask<String,String ,MoodleWebService> {
 
 		@Override
@@ -185,26 +187,31 @@ public class Welcome extends Activity {
 		protected MoodleWebService doInBackground(String... params) {
 
 			try{
-
+				//params[0] - Rest url
+				//params[1]	- token
 				MoodleCallRestWebService.init(params[0],params[1]);
+
+				//get the information about the Moodle
 				MoodleWebService siteInfo = MoodleRestWebService.getSiteInfo();
+
+				//update the currentSession information
 				currentSessionInfo.setCurrentSiteInfo(siteInfo);
-				
+
+				//get the image of profile
 				String imageUrl=siteInfo.getUserPictureURL();
-			//	publishProgress(imageUrl);
 				Log.i("Welcome",imageUrl);
 				InputStream in = (InputStream) new URL(imageUrl).getContent();
 				Bitmap image = BitmapFactory.decodeStream(in);
-				
-				
 				Long[] users=new Long[1];
-			      users[0]=MoodleRestWebService.getSiteInfo().getUserId();
-			      
-			      MoodleUser[] user=MoodleRestUser.getUsersById(users);
-			      currentSessionInfo.setCurrentUser(user[0]);
-			      
+				users[0]=MoodleRestWebService.getSiteInfo().getUserId();
+
+				
+				//get the User Information of the current Session
+				MoodleUser[] user=MoodleRestUser.getUsersById(users);
+				currentSessionInfo.setCurrentUser(user[0]);
+
 				if(image!=null)				{
-					
+
 					Log.i("Welcome","downloaded");//	publishProgress("Downloaded");
 					currentSessionInfo.setUserImage(image);
 				}
@@ -217,7 +224,7 @@ public class Welcome extends Activity {
 				// Logger.getLogger(MoodleGetSiteInfoExample.class.getName()).log(Level.SEVERE, null, ex);
 			} catch (MoodleRestException ex) {
 				// Logger.getLogger(MoodleGetSiteInfoExample.class.getName()).log(Level.SEVERE, null, ex);
-				
+
 			}catch(Exception ex)
 			{
 				Log.i("Welcome",ex.getMessage());
@@ -225,14 +232,14 @@ public class Welcome extends Activity {
 			return null;
 
 		}
-		
+
 		@Override
 		protected void onProgressUpdate(String... values) {
 			// TODO Auto-generated method stub
 			super.onProgressUpdate(values);
 			UIHelper.showToast(Welcome.this,values[0]);
 		}
-		
+
 
 		@Override
 		protected void onPostExecute(MoodleWebService result) {
@@ -241,16 +248,13 @@ public class Welcome extends Activity {
 			if (result==null) {
 				UIHelper.showToast(Welcome.this,"Error Occureed");
 			} else {
-			
+
 				//siteINFO=result;
 				pb.setVisibility(pb.INVISIBLE);
-				
-				//UIHelper.showToast(Welcome.this,result.getUserName());
 				Intent intent=new Intent(Welcome.this,MainActivity.class);
-				//intent.putExtra("MoodleWebService",result);
 				startActivity(intent);
 			}
-			
+
 
 		}
 

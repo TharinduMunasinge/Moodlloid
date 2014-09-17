@@ -27,6 +27,11 @@ import com.tharindu.moodlloid.rest.UserEnrolledCourse;
 import com.tharindu.moodlloid.util.Timer;
 import com.tharindu.moodlloid.util.UIHelper;
 
+/*******************************************************************
+ * This class will Get the Notification Informations and
+ * store them in dataSe for the further usage from other activities
+ * @author tharindu
+ ******************************************************************* */
 public class NotificationsFragment extends Fragment {
 
 	public static MoodleCalendar[] calendarEvents;
@@ -37,40 +42,52 @@ public class NotificationsFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		View rootView = inflater .inflate(R.layout.marks_fragment, container, false);
-//		tv=(TextView)rootView.findViewById(R.id.textView1);
+		//		tv=(TextView)rootView.findViewById(R.id.textView1);
 		//Button settings=(Button)rootView.findViewById(R.id.bt)
-		
+
 		Button btnSettings=(Button)rootView.findViewById(R.id.btnSettings);
 		btnSettings.setOnClickListener(new SettingsListner());
-		
+
 		Button calendarBtn=(Button)rootView.findViewById(R.id.btnCalendar);
 		pb=(ProgressBar)rootView.findViewById(R.id.progressBar1);
 		Button calendarListBtn=(Button)rootView.findViewById(R.id.btnEventList);
-		
+
 		containerActivity=(Activity)rootView.getContext();
-		
+
 		calendarBtn.setOnClickListener(new CalendarClickListner());
 		calendarListBtn.setOnClickListener(new CalendarListListner() );
-		
+
 		return rootView;
 	}
-	
+
+	/**
+	 * Sync Calendar option
+	 */
 	public void LoadCalendar(){
-		UIHelper.showToast(containerActivity,"Calendar is loaded");
+		UIHelper.showToast(containerActivity,"Calendar is Syncd");
 	}
-	
+
+	/**
+	 * Load the event list using Asyntask
+	 */
 	public void loadEventList()	{		
 		MyTask task=new MyTask();
 		task.execute("");
 	}
+
+
+	/***************************Inner class that handle the Settings click*************** ***********/
+
 	class SettingsListner implements View.OnClickListener{
 		@Override
 		public void onClick(View v) {
 			Intent i= new Intent(containerActivity,EventSettingsPreference.class);
 			startActivity(i);
 		}
-		
+
 	}
+
+	/***************************Inner class that Sync the calendar to local calendar *****************/
 
 	class  CalendarClickListner implements View.OnClickListener{
 		@Override
@@ -79,9 +96,11 @@ public class NotificationsFragment extends Fragment {
 			MyTask task=new MyTask();
 			task.execute("");
 		}
-		
+
 	}
-	
+
+	/***************************Inner class that  Load the Event List ********************************/
+
 	class CalendarListListner implements View.OnClickListener{
 		@Override
 		public void onClick(View v) {
@@ -89,20 +108,20 @@ public class NotificationsFragment extends Fragment {
 			MyTask task=new MyTask();
 			task.execute("");
 		}
-		
+
 	}
 
+	/***************************Inner class that Send the request to the web servies and get the notification messages ***********/
 
 	private class MyTask extends AsyncTask<String,String ,MoodleCalendar[]> {
 		@Override
 		protected   MoodleCalendar[] doInBackground(String... params) {
 
 			try{
-
 				ArrayList<UserEnrolledCourse> currentCourses= SessionWrapper.getCurrentsession().getCurrentUser().getEnrolledCourses();
-
+				//get the current Courses
 				MoodleCalendar [] calenderDetails=new MoodleCalendar[currentCourses.size()];
-
+				//Create the moodleCallendar object array with course ID to pass to the CalendarREstClient
 				for (int i = 0; i < calenderDetails.length; i++) {
 
 					MoodleCalendar cal= new MoodleCalendar();
@@ -112,14 +131,11 @@ public class NotificationsFragment extends Fragment {
 					calenderDetails[i]=cal;
 				}
 
-				Date d=new Date();
+				Date d=new Date();// current Time instance
 				long timstamps=d.getTime();			
 
 				MoodleCalendar [] responseEvents=MoodleRestCalendar.getCalendarEvents(calenderDetails, 1,1,Timer.getStartOfTheMonthInMili(timstamps)/1000,Timer.getEndOftheMonthInMili(timstamps)/1000,1);
 				//should send request to server and get Calendar responsess and return to onPostExecute 
-
-
-
 				return responseEvents; 
 			}     //printSiteInfo(siteInfo);
 			catch (MoodleRestWebServiceException ex) {
@@ -159,10 +175,11 @@ public class NotificationsFragment extends Fragment {
 
 				if(result[0]==null)
 				{
-					tv.setText("You don't have any Events");
+					//tv.setText("You don't have any Events");
 				}
 				else
 				{
+					//Start The calendar Event List
 					calendarEvents=result;
 					Intent i=new Intent(containerActivity,EventsActivity.class);
 					startActivity(i);	
@@ -174,16 +191,6 @@ public class NotificationsFragment extends Fragment {
 		}
 
 	}
-
-
-
-
-
-
-
-
-
-
 
 
 }
