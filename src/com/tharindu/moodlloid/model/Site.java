@@ -1,7 +1,5 @@
 package com.tharindu.moodlloid.model;
 
-import java.io.Serializable;
-
 import com.tharindu.moodlloid.Configuration;
 
 /**************************************************************
@@ -140,7 +138,7 @@ public class Site{
 	
 
 	/**
-	 * @return
+	 * @return : the rest web service url of the current Moodle instance
 	 */
 	public String getRestURL() {
 		return restURL;
@@ -148,7 +146,7 @@ public class Site{
 	
 
 	/**
-	 * @param restURL
+	 * @param restURL : return the rest URL
 	 */
 	public void setRestURL(String restURL) {
 		this.restURL = restURL;

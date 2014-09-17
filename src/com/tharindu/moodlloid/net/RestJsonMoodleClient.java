@@ -10,6 +10,11 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 
+/**
+ * This is the Class which can be used to simulate HTTP Request
+ * @author tharindu
+ *
+ */
 public class RestJsonMoodleClient {
 
 	/**
@@ -17,9 +22,23 @@ public class RestJsonMoodleClient {
 	 * @param args the command line arguments
 	 */
 
+	
+	
+	/**
+	 * Rest path URL 
+	 */
 	private String url;
+	
+	/**
+	 * UserName should be passed 
+	 */
 	private String userName;
+	/**
+	 * password shoud be passed
+	 */
 	private String password;
+	
+	
 
 	public RestJsonMoodleClient(String url, String userName, String password) {
 		super();

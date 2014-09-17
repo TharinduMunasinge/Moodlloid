@@ -2,11 +2,7 @@ package com.tharindu.moodlloid.model;
 
 import java.util.ArrayList;
 
-import android.graphics.Bitmap;
-
 import com.tharindu.moodlloid.rest.MoodleCourseContent;
-import com.tharindu.moodlloid.rest.MoodleModule;
-import com.tharindu.moodlloid.rest.MoodleModuleContent;
 
 
 /****************************************************************************************

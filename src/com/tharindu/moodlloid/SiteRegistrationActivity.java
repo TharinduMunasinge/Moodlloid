@@ -2,25 +2,18 @@ package com.tharindu.moodlloid;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.UTFDataFormatException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import org.apache.http.auth.MalformedChallengeException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//import android.R;
-
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.database.SQLException;
-import android.opengl.Visibility;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.JsonReader;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,11 +21,9 @@ import android.widget.ProgressBar;
 
 import com.tharindu.moodlloid.model.Site;
 import com.tharindu.moodlloid.net.HttpManager;
-import com.tharindu.moodlloid.net.MoodleGetSiteInfoExample;
-import com.tharindu.moodlloid.rest.MoodleWebService;
 import com.tharindu.moodlloid.store.SitesDataSource;
 import com.tharindu.moodlloid.util.UIHelper;
-import com.tharindu.moodlloid.R;
+//import android.R;
 enum Errorcode{EMPTY,NOT_A_VALID_URL,CREDENTIAL_WRONG,OK};
 
 public class SiteRegistrationActivity extends Activity{
