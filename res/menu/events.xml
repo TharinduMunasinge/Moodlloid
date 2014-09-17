@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/progress"
+        android:icon="@android:drawable/ic_popup_sync"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="sync">
+    </item>
+    <item
+        android:id="@+id/period"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="Period">
+        <menu>
+            <item
+                android:id="@+id/action_all"
+                android:orderInCategory="101"
+                android:showAsAction="never"
+                android:title="@string/event_option_menu_all"
+                android:visible="true">
+            </item>
+            <item
+                android:id="@+id/action_upcomming"
+                android:orderInCategory="102"
+                android:showAsAction="never"
+                android:title="@string/event_option_menu_up"
+                android:visible="true">
+            </item>
+            <item
+                android:id="@+id/action_today"
+                android:orderInCategory="103"
+                android:showAsAction="never"
+                android:title="@string/event_option_menu_today">
+            </item>
+            <item
+                android:id="@+id/action_past"
+                android:orderInCategory="104"
+                android:showAsAction="never"
+                android:title="@string/event_option_munu_past">
+            </item>
+        </menu>
+    </item>
+
+</menu>

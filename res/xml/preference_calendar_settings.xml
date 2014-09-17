@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="User Events Notification" >
+        <CheckBoxPreference
+            android:key="usercheck5m"
+            android:summary="On/Off"
+            android:title="5 min Before" />
+        <CheckBoxPreference
+            android:key="usercheck1d"
+            android:summary="On/Off"
+            android:title="1 day Before" />
+        <CheckBoxPreference
+            android:key="usercheck1w"
+            android:summary="On/Off"
+            android:title="1 week before" />
+        
+    </PreferenceCategory>
+	
+    
+    <PreferenceCategory android:title="Course Events Notification" >
+        <CheckBoxPreference
+            android:key="coursecheck5m"
+            android:summary="On/Off"
+            android:title="5 min Before" />
+        <CheckBoxPreference
+            android:key="coursecheck1d"
+            android:summary="On/Off"
+            android:title="1 day Before" />
+        <CheckBoxPreference
+            android:key="coursecheck1w"
+            android:summary="On/Off"
+            android:title="1 week before" />
+        
+    </PreferenceCategory>
+    
+    
+    
+    <PreferenceCategory android:title="Site Events Notification" >
+        <CheckBoxPreference
+            android:key="sitecheck5m"
+            android:summary="On/Off"
+            android:title="5 min Before" />
+        <CheckBoxPreference
+            android:key="sitecheck1d"
+            android:summary="On/Off"
+            android:title="1 day Before" />
+        <CheckBoxPreference
+            android:key="sitecheck1w"
+            android:summary="On/Off"
+            android:title="1 week before" />
+        
+    </PreferenceCategory>
+    
+    
+</PreferenceScreen>
