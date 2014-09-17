@@ -6,6 +6,18 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">General</string>
 
+    <string-array name="event_types_array">
+        <item>Any</item>
+        <item>Course</item>
+        <item>Site</item>
+        <item>User</item>
+    </string-array>
+    
+    
+    
+    
+    
+    
     <string-array name="planets_array">
         <item>Item 1</item>
         <item>Item 2</item>
@@ -19,7 +31,13 @@
     <string name="title_activity_marks">Notification</string>
     <string name="title_activity_explanations">Messages</string>
     <string name="title_activity_cups">Logout</string>
-
+	    <string name="title_activity_course_detail">Course Details</string>
+    <string name="title_activity_event_list">Event List</string>
+    <string name="title_activity_evnt_detais">Event Details</string>
+   <string name="title_activity_event_settings">Notification Settings</string>
+   
+    
+    
     <string-array name="titles">
         <item>Profile</item>
         <item>Courses</item>
@@ -41,5 +59,14 @@
     <string name="title_activity_payment">Payment</string>
     <string name="sitelist_newsite_text">Add New Site</string>
     <string name="title_activity_newsite">New Site Registration</string>
+    <string-array name="event_option_menu_items">
+        <item >Up Comming</item>
+        <item >Today</item>
+        <item >Past</item>
+    </string-array>
+    <string name="event_option_menu_all">ALL</string>
+    <string name="event_option_menu_up">UP COMMING</string>
+    <string name="event_option_munu_past">PAST</string>
+    <string name="event_option_menu_today">TODAY</string>
 
 </resources>

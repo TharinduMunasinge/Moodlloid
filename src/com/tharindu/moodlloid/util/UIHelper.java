@@ -33,4 +33,8 @@ public class UIHelper {
 		Toast.makeText(activity, msg,Toast.LENGTH_LONG).show();
 	}
 
+	public static void showToastSlow(Context activity,String msg){
+		Toast.makeText(activity, msg,Toast.LENGTH_SHORT).show();
+	}
+
 }

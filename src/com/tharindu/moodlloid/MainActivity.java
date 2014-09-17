@@ -3,6 +3,8 @@ package com.tharindu.moodlloid;
 import java.util.ArrayList;
 import java.util.List;
 import com.tharindu.moodlloid.R;
+import com.tharindu.moodlloid.rest.MoodleCalendar;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
@@ -21,6 +23,10 @@ import android.widget.ListView;
 
 public class MainActivity extends Activity {
 
+	
+	
+	public static MoodleCalendar[] calendarEvents;
+	
 	
 
 	// Attribute goes here.............
@@ -197,9 +203,10 @@ public class MainActivity extends Activity {
 			fragment = new MessagesFragment();
 			break;
 		case 4: 
-			fragment= new Callendar();
+
+			finish();
 		default:	
-			fragment = new CoursesFragment();
+			finish();
 			break;
 		}
 

@@ -120,9 +120,9 @@ public class Welcome extends Activity {
 		//		task.execute("test","test");
 
 		//	UIHelper.showToast(this, "clickde");
+		
 		Intent newSite=new Intent(this,SiteRegistrationActivity.class);
-		//	newSite.putExtra(, value)
-
+//		Intent newSite=new Intent(this,TestDataActivity.class);
 		startActivity(newSite);
 	}
 

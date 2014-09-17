@@ -17,18 +17,16 @@ public class CourseListAdapter extends ArrayAdapter<UserEnrolledCourse> {
 	 Context context;
 	 List<UserEnrolledCourse> courses;
 
-	public CourseListAdapter(Context context, int resource) {
-		super(context, resource);
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	public CourseListAdapter(Context context, List<UserEnrolledCourse> resource) {
 		super(context, R.layout.courselist_item,resource);
 		this.context=context;
 		this.courses=resource;
-		
-		// TODO Auto-generated constructor stub
-	}
+		}
+
+	
+	
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {

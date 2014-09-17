@@ -8,6 +8,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".NotificationsFragment" >
 
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnCalendar"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible" />
 
+    <Button
+        android:id="@+id/btnEventList"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="34dp"
+        android:layout_toRightOf="@+id/btnCalendar"
+        android:background="@drawable/calendar_list" />
+
+    <Button
+        android:id="@+id/btnCalendar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignBaseline="@+id/btnEventList"
+        android:layout_alignBottom="@+id/btnEventList"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="18dp"
+        android:background="@drawable/calendar_button" />
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/progressBar1"
+        android:layout_below="@+id/progressBar1"
+        android:text="Settings" />
 
 </RelativeLayout>

@@ -44,6 +44,7 @@ public class CoursesFragment extends Fragment {
 	 ProgressBar pb;
 	private List<UserEnrolledCourse> enroledCourseList;
 	private ListView courseList;
+	public static UserEnrolledCourse currentCourseDetails;
 	private  Activity containerActivity;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -103,7 +104,7 @@ public class CoursesFragment extends Fragment {
 
 		UserEnrolledCourse course=enroledCourseList.get(position);
 		
-		
+		currentCourseDetails=course;
 			//UIHelper.showToast(this, s.getRestURL()+"\n"+s.getToken());
 			
 			
